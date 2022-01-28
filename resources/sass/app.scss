@@ -1,0 +1,36 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons';
+
+body {
+    padding:0;
+    margin:0;
+}
+
+.sidebar {
+    width: 10%;
+}
+
+li {
+    list-style: none;
+    list-style-type: none;
+}
+
+.total-progress {
+    width: 30%;
+    height: 2vh;
+    border-radius: 50px;
+
+    .current-progress {
+        background: linear-gradient(270.13deg, #A88EF9 10.65%, rgba(168, 142, 249, 0) 83.26%);
+        height: 2vh;
+        border-radius: 50px;
+    }
+}
+
