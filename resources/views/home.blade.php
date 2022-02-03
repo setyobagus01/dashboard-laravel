@@ -13,8 +13,36 @@
             <div class="bg-light p-5 rounded mt-2">
                 <div class="mt-2">
                     <h2 class="font-weight-bold">Course you're taking</h2>
-                    <div class="row">
-                        <livewire:courses>
+                    <div class="d-flex flex-column">
+
+                        @foreach ($courses as $course)
+                        <div class="card p-3">
+                            
+                            <div class="d-flex">
+                                <img class="rounded img-thumbnail w-25" src="{{ url('storage/images/'.$course->img_url) }}" alt="test" />
+                                <div class="d-flex flex-column ms-3 w-100">
+                                    <span class="font-weight-bold">{{$course->category}}</span>
+                                    <h4 class="mb-4"><a class="text-primary text-decoration-none" href="{{ url('/courses', ['id' => $course->id])}}"><strong>{{$course->title}}</strong></a></h4>
+                                    <span>Overall Progress: </span>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="bg-light total-progress w-75">
+                                            <div class="current-progress" style="width: {{($course->currentlesson / $course->totallesson) * 100}}%">
+                                            </div>
+
+                                        </div>
+                                        <span>{{number_format((float)(($course->currentlesson / $course->totallesson) * 100), 2, '.', '');}}%</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between mt-2">
+                                <span>{{$course->currentlesson}} of {{$course->totallesson}} lessons</span>
+                                
+                            </div>
+                        </div>
+                        @endforeach
+                        
                     </div>
 
                 </div>
